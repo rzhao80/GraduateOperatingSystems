@@ -39,7 +39,7 @@ void error(const char *message) {
  *  Echo Protocol Client:
  *  Optional Flags: -s [server_address] -p [server_port] -m [message]
  *          
- *  i.e. ./client -s localhost -p 8888
+ *  i.e. ./client -s localhost -p 8888 -m "what is that sound?"
  */	
 
 int main (int argc, char *argv[]) {
@@ -63,7 +63,7 @@ int main (int argc, char *argv[]) {
     char buffer[BUFFER_SIZE];
     
     /*	
-     *	Flags: -s to specify server address and -p to specify port
+     *	Flags: -s to specify server address; -p to specify port; -m to specify message
      *  Defaults to localhost:8080
      */	
 
