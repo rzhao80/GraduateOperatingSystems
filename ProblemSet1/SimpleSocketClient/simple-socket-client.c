@@ -22,7 +22,7 @@
  */	
 
 #define DEFAULT_SERVER_ADDRESS "localhost"
-#define DEFAULT_SERVER_PORT 8080
+#define DEFAULT_SERVER_PORT 8888
 
 /*	
  *	Error handler
@@ -37,7 +37,7 @@ void error(const char *message) {
  *  Simple Socket Client:
  *  Optional Flags: -s [server_address] -p [server_port]
  *          
- *  i.e. ./client -s localhost -p 8080
+ *  i.e. ./client -s localhost -p 8888
  */	
 
 int main (int argc, char *argv[]) {
@@ -82,7 +82,6 @@ int main (int argc, char *argv[]) {
     socket_file_descriptor = socket(AF_INET, SOCK_STREAM, 0);
     if ( socket_file_descriptor < 0) {
         error("Error opening socket");
-        exit(1);
     }
 
     // bzero: zero out all bytes in memory to `\0` so there's no junk
@@ -97,7 +96,6 @@ int main (int argc, char *argv[]) {
     // Connect socket to server
     if ( 0 > connect(socket_file_descriptor, (struct sockaddr *)&server_socket_address, sizeof(server_socket_address))) {
         printf("Client failed to connect to %s:%d\n",server_address_string,port_number);
-        exit(1);
     } else {
         printf("SUCCESS: Connected to %s:%d\n",server_address_string,port_number);
     }
